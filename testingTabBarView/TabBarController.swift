@@ -19,6 +19,11 @@ class TabBarController: UITabBarController {
         setupMiddleButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     
     func setupMiddleButton() {
         
@@ -95,6 +100,7 @@ class TabBarController: UITabBarController {
     func setUpViewController(_ Vc: UIViewController, image: String, selectedImage: String, title: String) {
         
         let nav = UINavigationController(rootViewController: Vc)
+        nav.setNavigationBarHidden(true, animated: true)
         Vc.view.backgroundColor = randomColor()
         var myImage = UIImage(named: image)
         myImage = myImage?.withRenderingMode(.alwaysOriginal)
@@ -125,6 +131,7 @@ extension TabBarController : Circle3DViewDelegate{
     func selectedValue(index: Int) {
         let viewController = UIViewController()
         viewController.view.backgroundColor = randomColor()
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
