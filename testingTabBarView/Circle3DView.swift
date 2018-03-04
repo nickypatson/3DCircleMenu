@@ -139,7 +139,7 @@ class Circle3DView: UIView {
             }
             if (currentIndex >= 0 && currentIndex < Int(MenuCount)) {
                 titleLabel.text = titleValues[currentIndex]
-                let selectedImageView = menuImageArray[currentIndex]
+                _ = menuImageArray[currentIndex]
             }
             
             if (currentIndex < 0) {

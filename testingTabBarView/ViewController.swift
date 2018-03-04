@@ -15,14 +15,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressAction))
         longPressGesture.minimumPressDuration = 0.3
         button.addGestureRecognizer(longPressGesture)
         new.delegate = self;
     }
-        
+    
     @objc func longPressAction(gesture : UILongPressGestureRecognizer){
         
         switch gesture.state {
