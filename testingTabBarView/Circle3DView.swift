@@ -17,10 +17,10 @@ protocol Circle3DViewDelegate: NSObjectProtocol {
 
 class Circle3DView: UIView {
     
-     var currentIndex = -1
-     var itemPathArray = [UIBezierPath]()
-     var menuImageArray = [UIImageView]()
-     var titleLabel:UILabel = {
+    var currentIndex = -1
+    var itemPathArray = [UIBezierPath]()
+    var menuImageArray = [UIImageView]()
+    var titleLabel:UILabel = {
         let label = UILabel()
         label.text = "Menu"
         label.textColor = UIColor.white
@@ -30,7 +30,7 @@ class Circle3DView: UIView {
         return label
     }()
     
-    let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     weak var delegate: Circle3DViewDelegate?
     
@@ -104,7 +104,7 @@ class Circle3DView: UIView {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 20, options: .curveEaseIn, animations: {
             self.transform = .identity
         }, completion: nil)
-
+        
     }
     
     open func dismiss() {
@@ -119,9 +119,7 @@ class Circle3DView: UIView {
     
     func animateMenuItems(){
         
-
     }
-    
     
     @objc open func panGestureForCircle(pan: UIGestureRecognizer) {
         

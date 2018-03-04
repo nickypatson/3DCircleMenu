@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15FFB10204C311E00084AEB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FFB0F204C311E00084AEB /* TabBarController.swift */; };
 		E1B036CA204BD86400CF4406 /* Circle3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B036C9204BD86400CF4406 /* Circle3DView.swift */; };
 		E1D516F9204949DC006A4655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D516F8204949DC006A4655 /* AppDelegate.swift */; };
 		E1D516FB204949DC006A4655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D516FA204949DC006A4655 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E15FFB0F204C311E00084AEB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E1B036C9204BD86400CF4406 /* Circle3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle3DView.swift; sourceTree = "<group>"; };
 		E1D516F5204949DC006A4655 /* testingTabBarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingTabBarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D516F8204949DC006A4655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				E1B036C9204BD86400CF4406 /* Circle3DView.swift */,
 				E1D516F8204949DC006A4655 /* AppDelegate.swift */,
+				E15FFB0F204C311E00084AEB /* TabBarController.swift */,
 				E1D516FA204949DC006A4655 /* ViewController.swift */,
 				E1D516FC204949DC006A4655 /* Main.storyboard */,
 				E1D51702204949DC006A4655 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				E1D516FB204949DC006A4655 /* ViewController.swift in Sources */,
 				E1B036CA204BD86400CF4406 /* Circle3DView.swift in Sources */,
 				E1D516F9204949DC006A4655 /* AppDelegate.swift in Sources */,
+				E15FFB10204C311E00084AEB /* TabBarController.swift in Sources */,
 				E1D51701204949DC006A4655 /* testingTabBarView.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nickypatson.testingTabBarView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
