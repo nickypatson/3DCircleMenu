@@ -133,6 +133,7 @@ extension TabBarController : Circle3DViewDelegate{
         viewController.view.backgroundColor = randomColor()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.pushViewController(viewController, animated: true)
+        print("selected \(index)")
     }
 }
 
