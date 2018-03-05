@@ -10,7 +10,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    let circleView = Circle3DView()
+    let circleView = Circle3DView(frame: CGRect.zero, values: ["Navigation","Animation","Settings","Profile","More"])
     
     override func viewDidLoad() {
         super.viewDidLoad()

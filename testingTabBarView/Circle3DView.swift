@@ -6,8 +6,6 @@
 //  Copyright © 2018 Nick. All rights reserved.
 //
 
-let MenuCount:Float = 5
-let titleValues = ["Navigation","Animation","Settings","Profile","More"]
 
 import UIKit
 
@@ -17,9 +15,11 @@ protocol Circle3DViewDelegate: NSObjectProtocol {
 
 class Circle3DView: UIView {
     
+    var menuTitleValues = [String]()
     var currentIndex = -1
     var itemPathArray = [UIBezierPath]()
     var menuImageArray = [UIImageView]()
+    
     var titleLabel:UILabel = {
         let label = UILabel()
         label.text = "Menu"
@@ -34,7 +34,7 @@ class Circle3DView: UIView {
     
     weak var delegate: Circle3DViewDelegate?
     
-    override init(frame: CGRect) {
+    public init(frame: CGRect, values:[String]) {
         super.init(frame: frame)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGestureForCircle))
         addGestureRecognizer(panGesture)
@@ -42,6 +42,7 @@ class Circle3DView: UIView {
         layer.cornerRadius = 100
         layer.shadowOpacity = 0.8
         layer.shadowOffset  = CGSize(width: 0, height: -2)
+        menuTitleValues = values
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,13 +52,14 @@ class Circle3DView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let initalTh = Float.pi / Float(((MenuCount - 1) * 2 + 2));
-        let th = (.pi - 2 * initalTh) / Float((MenuCount - 1))
+        let menuCount = Float(menuTitleValues.count)
+        let initalTh = Float.pi / Float(((menuCount - 1) * 2 + 2));
+        let th = (.pi - 2 * initalTh) / Float((menuCount - 1))
         
-        for index in 0..<Int(MenuCount) {
+        for index in 0..<Int(menuCount) {
             let radius = ((bounds.width / 2) * 0.75)
             let imageView = UIImageView()
-            imageView.image = UIImage(named:String(titleValues[index]))
+            imageView.image = UIImage(named:String(menuTitleValues[index]))
             addSubview(imageView)
             imageView.transform = .identity
             imageView.center = CGPoint(x: bounds.width / 2, y: bounds.width / 2)
@@ -71,8 +73,8 @@ class Circle3DView: UIView {
         
         let centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius = bounds.width / 2
-        let touchTh = CGFloat(.pi / MenuCount)
-        for index in 0..<Int(MenuCount) {
+        let touchTh = CGFloat(.pi / menuCount)
+        for index in 0..<Int(menuCount) {
             let path = UIBezierPath()
             path.move(to: centerPoint)
             let startAngle: CGFloat = .pi + CGFloat(index) * touchTh
@@ -137,8 +139,8 @@ class Circle3DView: UIView {
                     continue
                 }
             }
-            if (currentIndex >= 0 && currentIndex < Int(MenuCount)) {
-                titleLabel.text = titleValues[currentIndex]
+            if (currentIndex >= 0 && currentIndex < menuTitleValues.count) {
+                titleLabel.text = menuTitleValues[currentIndex]
                 _ = menuImageArray[currentIndex]
             }
             
