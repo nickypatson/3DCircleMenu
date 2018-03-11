@@ -6,6 +6,7 @@
 //  Copyright © 2018 Nick. All rights reserved.
 //
 
+let CIRCLE_RADIUS:CGFloat = 250
 
 import UIKit
 
@@ -39,8 +40,8 @@ class Circle3DView: UIView {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGestureForCircle))
         addGestureRecognizer(panGesture)
         backgroundColor = UIColor(red: 45/255, green: 62/255, blue: 79/255, alpha: 1.0)
-        layer.cornerRadius = 100
-        layer.shadowOpacity = 0.8
+        layer.cornerRadius = CIRCLE_RADIUS/2
+        layer.shadowOpacity = 0.7
         layer.shadowOffset  = CGSize(width: 0, height: -2)
         menuTitleValues = values
     }
@@ -101,7 +102,7 @@ class Circle3DView: UIView {
         view.addSubview(visualEffectView)
         visualEffectView.contentView.addSubview(self)
         
-        frame = CGRect(x: view.bounds.midX - 100, y: view.bounds.height - 120, width: 200, height: 200)
+        frame = CGRect(x: view.bounds.midX - CIRCLE_RADIUS/2, y: view.bounds.height - CIRCLE_RADIUS/2 - 25, width: CIRCLE_RADIUS, height: CIRCLE_RADIUS)
         self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 20, options: .curveEaseIn, animations: {
             self.transform = .identity
