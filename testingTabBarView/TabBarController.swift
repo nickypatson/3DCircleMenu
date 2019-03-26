@@ -59,6 +59,8 @@ class TabBarController: UITabBarController {
         case .cancelled,
              .possible,
              .failed: break
+        @unknown default: break
+            
         }
     }
     
@@ -66,12 +68,12 @@ class TabBarController: UITabBarController {
     func initilizeTabBar() {
         
         let tabBarItem = UITabBarItem.appearance(whenContainedInInstancesOf: [TabBarController.self])
-        var dictNormal = [NSAttributedStringKey : Any]()
-        dictNormal[NSAttributedStringKey.foregroundColor] = UIColor.gray
-        dictNormal[NSAttributedStringKey.font] = UIFont.systemFont(ofSize: 11)
-        var dictSelected = [NSAttributedStringKey : Any]()
-        dictSelected[NSAttributedStringKey.foregroundColor] = UIColor.darkGray
-        dictSelected[NSAttributedStringKey.font] = UIFont.systemFont(ofSize: 11)
+        var dictNormal = [NSAttributedString.Key : Any]()
+        dictNormal[NSAttributedString.Key.foregroundColor] = UIColor.gray
+        dictNormal[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 11)
+        var dictSelected = [NSAttributedString.Key : Any]()
+        dictSelected[NSAttributedString.Key.foregroundColor] = UIColor.darkGray
+        dictSelected[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 11)
         tabBarItem.setTitleTextAttributes(dictNormal, for: .normal)
         tabBarItem.setTitleTextAttributes(dictSelected, for: .selected)
     }
@@ -86,7 +88,7 @@ class TabBarController: UITabBarController {
         setUpViewController(FishVC, image: "fish_normal", selectedImage: "fish_highlight", title: "Fishing")
         
         let middle = UIViewController()
-        addChildViewController(middle)
+        addChild(middle)
         
         let MessageVC = UIViewController()
         setUpViewController(MessageVC, image: "message_normal", selectedImage: "message_highlight", title: "Message")
@@ -110,7 +112,7 @@ class TabBarController: UITabBarController {
         Vc.tabBarItem.selectedImage = mySelectedImage
         Vc.tabBarItem.title = title
         Vc.navigationItem.title = title
-        addChildViewController(nav)
+        addChild(nav)
     }
     
     @objc func middleButtonPressed(){
